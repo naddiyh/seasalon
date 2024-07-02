@@ -4,8 +4,14 @@
 
 ##Getting Started
 
-First, run the development server:
+First,
+```
+pnpm install
+#or
+npm install
+```
 
+and run the development server:
 ```bash
 npm run dev
 # or
