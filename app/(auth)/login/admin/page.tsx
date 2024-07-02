@@ -1,5 +1,5 @@
 import { LoginAdmin } from "@/features/auth/LoginAdmin";
 
-export default function LoginPage() {
+export default function AdminPage() {
   return <LoginAdmin />;
 }

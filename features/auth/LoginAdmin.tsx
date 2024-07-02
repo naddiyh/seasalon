@@ -5,10 +5,6 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useAuth } from "./useAuth";
 import { TLoginForm } from "./types";
 import { PrimaryButton } from "@/components/atoms";
-interface IFormInput {
-  email: string;
-  password: string;
-}
 
 export const LoginAdmin: React.FC = () => {
   const { login } = useAuth();
@@ -26,7 +22,7 @@ export const LoginAdmin: React.FC = () => {
   return (
     <main className="items-center justify-center rounded-lg flex w-screen h-screen px-8 md:px-28">
       <section className="flex flex-row shadow-2xl">
-        <section className="relative min-h-[600px] w-[400px]">
+        <section className="md:flex hidden relative min-h-[600px] w-[400px]">
           <Image
             src={"/images/manhaircut.webp"}
             fill
@@ -115,5 +111,3 @@ export const LoginAdmin: React.FC = () => {
     </main>
   );
 };
-
-export default LoginAdmin;

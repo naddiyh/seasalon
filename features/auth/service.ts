@@ -63,7 +63,6 @@ export const signup = async (value: TSingUpForm) => {
     role: "customer",
     photoURL: userCredential.user.photoURL,
     emailVerified: userCredential.user.emailVerified,
-    service: value.service,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     password: value.password,
@@ -120,7 +119,7 @@ export const signInWithGoogle = async () => {
       password: "",
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      service: "",
+
       phone: "",
     };
     await setDoc(doc(db, "customer", user.uid), user);

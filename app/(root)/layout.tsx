@@ -1,5 +1,5 @@
 import { Navbar } from "@/components/Navbar";
-import Providers from "../provider";
+import Providers from "../providers";
 import { Footer } from "@/components/Footer/Footer";
 
 export default function MainLayout({
