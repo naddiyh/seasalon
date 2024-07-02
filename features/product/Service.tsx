@@ -17,11 +17,11 @@ export const ServiceHair = () => {
   };
 
   const handleReviewSubmit = () => {
-    handleClose(); // Close modal after review submission
+    handleClose();
   };
 
   return (
-    <main className="relative bg-black text-white px-8 md:px-28 gap-8 flex pt-20  flex-col min-h-screen">
+    <main className="relative bg-black text-white px-8 md:px-28 gap-8 flex py-40  flex-col min-h-screen">
       <div>
         <h1 className="font-bold text-[#d2ac47] text-[40px]">Service Hair</h1>
         <p className="text-[18px]">
@@ -29,7 +29,7 @@ export const ServiceHair = () => {
           your confidence.
         </p>
       </div>
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
         {ServiceList.map((service, index) => (
           <div
             key={index}
@@ -56,14 +56,12 @@ export const ServiceHair = () => {
       </PrimaryButton>
       {isOpen && (
         <div className="fixed flex-col inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <ModalReview onSubmitReview={handleReviewSubmit} />
-          <button className="mt-4 text-blue-500" onClick={handleClose}>
-            Close
-          </button>
+          <ModalReview
+            onSubmitReview={handleReviewSubmit}
+            onClose={handleClose}
+          />
         </div>
       )}
     </main>
   );
 };
-
-export default ServiceHair;
