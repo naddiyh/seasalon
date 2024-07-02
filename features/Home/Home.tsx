@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { Reservation } from "../reservation";
 import Image from "next/image";
 import { PrimaryButton } from "@/components/atoms/PrimaryButton";
-import { useAuth } from "@/features/auth/useAuth"; // Adjust the import according to your setup
+import { useAuth } from "@/features/auth/useAuth";
 
 export const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);

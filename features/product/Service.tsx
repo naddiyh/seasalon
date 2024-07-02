@@ -4,8 +4,6 @@ import { ServiceList } from "./serviceList";
 import { PrimaryButton } from "@/components/atoms/PrimaryButton";
 import { useState } from "react";
 import { ModalReview } from "../review/ModalReview";
-import { ReviewService } from "../review";
-import { DataReviewProps } from "../review/IReview";
 
 export const ServiceHair = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +17,7 @@ export const ServiceHair = () => {
   };
 
   const handleReviewSubmit = () => {
-    handleClose();
+    handleClose(); // Close modal after review submission
   };
 
   return (
@@ -67,3 +65,5 @@ export const ServiceHair = () => {
     </main>
   );
 };
+
+export default ServiceHair;
