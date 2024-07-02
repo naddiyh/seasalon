@@ -3,9 +3,11 @@ import { useForm, Controller } from "react-hook-form";
 import { FaStar } from "react-icons/fa";
 import { db } from "@/config/firebase";
 import { collection, addDoc } from "firebase/firestore";
+import { IoCloseOutline } from "react-icons/io5";
 
 interface ModalReviewProps {
   onSubmitReview: () => void;
+  onClose: () => void; // Added onClose prop
 }
 
 interface ReviewFormInputs {
@@ -14,7 +16,10 @@ interface ReviewFormInputs {
   rating: number;
 }
 
-export const ModalReview: React.FC<ModalReviewProps> = ({ onSubmitReview }) => {
+export const ModalReview: React.FC<ModalReviewProps> = ({
+  onSubmitReview,
+  onClose,
+}) => {
   const { register, handleSubmit, control, reset } =
     useForm<ReviewFormInputs>();
   const [hover, setHover] = useState<number | null>(null);
@@ -36,6 +41,16 @@ export const ModalReview: React.FC<ModalReviewProps> = ({ onSubmitReview }) => {
       onSubmit={handleSubmit(onSubmit)}
       className="py-4 px-6 bg-white w-[400px] flex flex-col gap-2 rounded-md shadow-md"
     >
+      <div className="relative flex">
+        <h1 className="text-[16pt] text-[#d2ac47] text-center">Rate us</h1>
+        <button
+          type="button"
+          className="absolute top-2 right-2 text-blue-500"
+          onClick={onClose}
+        >
+          <IoCloseOutline className="h-5 w-5" />
+        </button>
+      </div>
       <div className="">
         <label className="block text-gray-700">Name</label>
         <input
@@ -80,7 +95,7 @@ export const ModalReview: React.FC<ModalReviewProps> = ({ onSubmitReview }) => {
       <div className="flex justify-end">
         <input
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-blue-600"
+          className="bg-[#d2ac47] text-white px-4 py-2 rounded-md cursor-pointer hover:bg-[#e9c04e]"
         />
       </div>
     </form>

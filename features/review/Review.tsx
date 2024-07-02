@@ -55,7 +55,7 @@ export const ReviewService = () => {
     <main>
       <section className="w-full bg-[#ae8625]  overflow-x-hidden py-28">
         <section className="flex flex-col gap-6 md:gap-24">
-          <section className="flex flex-col relative pb-10 px-28 justify-center gap-4 text-center">
+          <section className="flex flex-col relative pb-10 px-8 md:px-28 justify-center gap-4 text-center">
             <h1 className="text-white uppercase font-bold text-[40px]">
               What They Said?
             </h1>
