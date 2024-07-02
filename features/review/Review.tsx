@@ -6,7 +6,7 @@ import { BoxReview } from "./components/BoxReview";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { collection, onSnapshot } from "firebase/firestore";
 import Image from "next/image";
-
+import { IoIosStar } from "react-icons/io";
 export const ReviewService = () => {
   const [cards, setCards] = useState<DataReviewProps[]>([]);
 
@@ -53,9 +53,9 @@ export const ReviewService = () => {
 
   return (
     <main>
-      <section className="w-full bg-[#ae8625] md:h-[570px] overflow-x-hidden rounded-md">
+      <section className="w-full bg-[#ae8625]  overflow-x-hidden py-28">
         <section className="flex flex-col gap-6 md:gap-24">
-          <section className="flex flex-col relative md:py-16 px-28 justify-center gap-4 text-center">
+          <section className="flex flex-col relative pb-10 px-28 justify-center gap-4 text-center">
             <h1 className="text-white uppercase font-bold text-[40px]">
               What They Said?
             </h1>
@@ -85,15 +85,19 @@ export const ReviewService = () => {
                       width={80}
                       height={80}
                       className="absolute rounded-full -top-20"
-                      src={"/images/nobita.webp"}
+                      src={"/images/noprofile.webp"}
                       alt={person.name}
                       objectFit="cover"
                       objectPosition="top"
                     />
                     <div className="pt-9 gap-3 flex flex-col text-text-m text-center px-4 text-black">
                       <p>{person.comment}</p>
-                      <p className="font-semibold">{person.name}</p>
+                      <p className="font-semibold pb-2">{person.name}</p>
                     </div>
+                    <p className="flex text-xs">
+                      <IoIosStar className="h-5 w-5 text-yellow-400" />
+                      {person.rating}/5
+                    </p>
                   </li>
                 </BoxReview>
               ))}

@@ -1,14 +1,22 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Reservation } from "../reservation";
 import Image from "next/image";
 import { PrimaryButton } from "@/components/atoms/PrimaryButton";
+import { useAuth } from "@/features/auth/useAuth"; // Adjust the import according to your setup
 
 export const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const { user } = useAuth();
 
   const handleOpen = () => {
-    setIsOpen(true);
+    if (user) {
+      setIsOpen(true);
+    } else {
+      router.push("/login");
+    }
   };
 
   const handleClose = () => {
@@ -27,14 +35,15 @@ export const HomePage = () => {
 
       <div className="z-20 flex flex-col gap-8 text-white lg:w-[55%]">
         <h1 className="font-bold text-6xl md:text-8xl">
-          <span className="text-[#d2ac47] pr-3">SEA</span> Salon
+          <span className="text-[#d2ac47]">SEA</span>Salon
         </h1>
         <span className="italic font-medium text-xl md:text-2xl">
           "Beauty and Elegance Redefined"
         </span>
         <p className="text-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, ab!
-          Voluptates sit reiciendis vitae. Inventore cum amet rerum tempora.
+          We are dedicated to enhancing your natural beauty with our exceptional
+          services. Our team of experts is committed to providing an
+          unforgettable experience tailored to meet your individual needs.
         </p>
 
         <div className="flex md:flex-row flex-col gap-8">
