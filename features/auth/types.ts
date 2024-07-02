@@ -8,7 +8,6 @@ export type TLoginForm = {
 
 export type TSingUpForm = {
   phone: string;
-  service: string;
   email: string;
   password: string;
   name: string;

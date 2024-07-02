@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,12 +9,11 @@ import { useAuth } from "./useAuth";
 interface IFormInput {
   name: string;
   email: string;
-  phone: string;
   password: string;
-  service: string;
+  phone: string;
 }
 
-export const SignUp = () => {
+export const Signup = () => {
   const { signup, handleSigninWithGoogle } = useAuth();
   const {
     register,
@@ -21,18 +21,14 @@ export const SignUp = () => {
     formState: { errors },
   } = useForm<IFormInput>();
 
-  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    try {
-      await signup.mutateAsync(data);
-    } catch (error) {
-      console.error("Error signing up:", error);
-    }
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    signup.mutateAsync(data);
   };
 
   return (
     <main className="items-center justify-center rounded-lg flex w-screen h-screen px-8 md:px-28 ">
       <section className="flex flex-row shadow-2xl">
-        <section className="hidden md:visible relative min-h-[600px] w-[400px]">
+        <section className="hidden md:flex relative min-h-[600px] w-[400px]">
           <Image
             src={"/images/manhaircut.webp"}
             fill
@@ -140,23 +136,23 @@ export const SignUp = () => {
                 </button>
               </section>
             </form>
-            <section className="flex flex-col items-center w-full justify-center gap-4 py-2">
-              <p className="text-text-m">or Sign up with</p>
+            <section className="flex w-full flex-col items-center gap-3 text-text-xs md:text-text-s ">
+              <p>or sign up with</p>
               <button
-                className="flex h-10 w-full items-center justify-center gap-2 rounded-md border text-text-s md:text-text-m"
                 onClick={handleSigninWithGoogle}
+                className="rounded-md border p-2 hover:bg-gradient-yellow"
               >
-                <FcGoogle className="h-5 w-5 md:h-6 md:w-6" />
-                Google
+                <FcGoogle className="mr-2 inline-block" size={20} />
+                Sign in with Google
               </button>
-              <div className="flex flex-col gap-1 text-center text-text-s">
-                <p className="">
-                  Already have an account?{" "}
-                  <Link href={"/login"} className="text-[#d2ac47]  underline">
+              <section className="flex gap-1">
+                <p>Already have an account?</p>
+                <Link href="/login" passHref>
+                  <p className="cursor-pointer text-gradient-yellow hover:text-primary-yellow">
                     Sign in
-                  </Link>
-                </p>
-              </div>
+                  </p>
+                </Link>
+              </section>
             </section>
           </section>
         </section>
@@ -164,5 +160,3 @@ export const SignUp = () => {
     </main>
   );
 };
-
-export default SignUp;

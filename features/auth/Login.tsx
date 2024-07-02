@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { PrimaryButton } from "@/components/atoms";
 import { FcGoogle } from "react-icons/fc";
 import { useAuth } from "./useAuth";
 import { TLoginForm } from "./types";
@@ -20,7 +19,7 @@ export const Login = () => {
     <>
       <main className="items-center justify-center rounded-lg flex w-screen h-screen px-8 md:px-28">
         <section className="flex flex-row shadow-2xl">
-          <section className="hidden md:visible relative min-h-[600px] w-[400px]">
+          <section className="hidden md:flex relative min-h-[600px] w-[400px]">
             <Image
               src={"/images/manhaircut.webp"}
               fill
@@ -118,6 +117,7 @@ export const Login = () => {
                     Have not account yet?
                     <Link
                       href={"/signup"}
+                      passHref
                       className="text-[#d2ac47]  underline"
                     >
                       Sign up
